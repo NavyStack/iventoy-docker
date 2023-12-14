@@ -1,0 +1,37 @@
+version: "3.9"
+services:
+  iventoy:
+    image: navystack/iventoy:latest
+    restart: always
+    ports:
+      - target: 16000
+        published: 16000
+        mode: host
+        protocol: tcp
+      - target: 26000
+        published: 26000
+        mode: host
+        protocol: tcp
+    volumes:
+      - isos:/app/iso
+      - data:/app/data
+    environment:
+      - AUTO_START_PXE=true
+    privileged: true # 반드시 필요한 옵션입니다.
+
+# 볼륨 관련 경로는 만들어주셔야 합니다.
+
+volumes:
+  isos:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./app/iso
+
+  data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./app/data
