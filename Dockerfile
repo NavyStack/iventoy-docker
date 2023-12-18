@@ -16,6 +16,6 @@ COPY scripts/entrypoint.sh /entrypoint.sh
 VOLUME /app/iso
 VOLUME /app/data
 
-EXPOSE 16000/tcp 26000/tcp
+EXPOSE 16000/tcp 26000/tcp 10809/tcp 69/udp
 
 CMD ["/entrypoint.sh"]
