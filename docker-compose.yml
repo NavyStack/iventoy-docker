@@ -12,6 +12,14 @@ services:
         published: 26000
         mode: host
         protocol: tcp
+      - target: 10809
+        published: 10809
+        mode: host
+        protocol: tcp
+      - target: 69
+        published: 69
+        mode: host
+        protocol: udp
     volumes:
       - isos:/app/iso
       - data:/app/data
