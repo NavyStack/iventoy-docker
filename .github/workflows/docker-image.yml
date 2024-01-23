@@ -49,7 +49,7 @@ jobs:
         with:
           tags: |
             ${{ steps.meta.outputs.tags }}
-            navystack/iventoy:${{ env.NOW }}
+            navystack/iventoy:${{ env.IVENTOY_VERSION_NS }}-${{ env.NOW }}
           labels: ${{ steps.meta.outputs.labels }}
           platforms: linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
