@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  iventoy:
+    image: navystack/iventoy:latest
+    restart: always
+    ports:
+      - "16000:16000"
+      - "26000:26000"
+      - "10809:10809"
+      - "69:69/udp"
+    volumes:
+      - /volume1/docker/iventoy/iso:/app/iso
+      - /volume1/docker/iventoy/data:/app/data
+    environment:
+      - AUTO_START_PXE=true
+    privileged: true
