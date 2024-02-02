@@ -62,9 +62,9 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           tags: |
-            ${{ steps.meta.outputs.tags }}
             ghcr.io/navystack/iventoy-docker:${{ env.NOW }}
             navystack/iventoy:${{ env.IVENTOY_VERSION_NS }}-${{ env.NOW }}
+            ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           platforms: linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
